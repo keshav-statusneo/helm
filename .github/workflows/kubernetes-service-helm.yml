@@ -15,8 +15,8 @@ jobs:
         uses: stefanprodan/helm-gh-pages@master
         with:
           token: ${{ secrets.BOT_TOKEN }}
-          charts_dir: chart
+          charts_dir: demochart
           charts_url: https://charts.fluxcd.io
           owner: fluxcd
-          repository: demochart
+          repository: chart
           branch: gh-pages
