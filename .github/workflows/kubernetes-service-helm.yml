@@ -7,23 +7,16 @@ on:
       - "main"
       
 jobs:
-  deployment:
-    runs-on: 'ubuntu-latest'
+  release-chart:
+    runs-on: ubuntu-latest
     steps:
-    
-
-    - name: 'Deploy'
-      uses: 'deliverybot/helm@v1'
-      with:
-        release: 'nginx'
-        namespace: 'default'
-        chart: 'demochart'
-        token: '${{ github.token }}'
-        values: |
-          name: foobar
-        value-files: >-
-          [
-            "values.yaml" 
-          ]
-      env:
-        KUBECONFIG_FILE: '${{ secrets.KUBECONFIG }}'
+      - uses: actions/checkout@v2
+      - name: Publish Helm chart
+        uses: stefanprodan/helm-gh-pages@master
+        with:
+          token: ${{ secrets.BOT_TOKEN }}
+          charts_dir: chart
+          charts_url: https://charts.fluxcd.io
+          owner: fluxcd
+          repository: charts
+          branch: gh-pages
