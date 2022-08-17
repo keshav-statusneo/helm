@@ -16,7 +16,6 @@ jobs:
         with:
           token: ${{ secrets.BOT_TOKEN }}
           charts_dir: demochart
-          charts_url: https://charts.fluxcd.io
-          owner: fluxcd
-          repository: chart
-          branch: gh-pages
+          owner: keshav-statusneo
+          repository: helm
+          branch: main
