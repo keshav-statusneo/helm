@@ -12,10 +12,6 @@ jobs:
     steps:
       - uses: actions/checkout@v2
       - name: Publish Helm chart
-        uses: stefanprodan/helm-gh-pages@master
-        with:
-          token: ${{ secrets.BOT_TOKEN }}
-          charts_dir: demochart
-          owner: keshav-statusneo
-          repository: helm
-          branch: main
+        run: |
+          helm version
+        
